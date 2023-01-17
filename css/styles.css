@@ -1,0 +1,94 @@
+.container {
+    max-width: 620px;
+    margin: 10% auto;
+    /* max-width: 1200px;
+    margin: 0 auto; */
+    padding: 0 15px;
+}
+
+.my-name {
+    display: none;
+    background-color: moccasin;
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 1.19;
+    padding: 5%;
+}
+
+.i-want {
+    display: none;
+    background-color: moccasin;
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 1.19;
+    padding: 5%;
+}
+
+.my-job {
+    display: none;
+    background-color: moccasin;
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 1.19;
+    padding: 5%;
+}
+
+.your-bisiness {
+    display: none;
+    background-color: moccasin;
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 1.19;
+    padding: 5%;
+}
+
+.salary {
+    display: none;
+    background-color: moccasin;
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 1.19;
+    padding: 5%;
+}
+
+.important {
+    display: none;
+    background-color: moccasin;
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 1.19;
+    padding: 5%;
+}
+
+.as-i-pursue {
+    display: none;
+    background-color: moccasin;
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 1.19;
+    padding: 5%;
+}
+
+.test {
+    background-color: moccasin;
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 1.19;
+    padding: 5%;
+}
