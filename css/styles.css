@@ -83,7 +83,7 @@
     padding: 5%;
 }
 
-.test {
+.js-examples {
     background-color: moccasin;
     font-family: 'Roboto', sans-serif;
     font-style: italic;
@@ -92,3 +92,13 @@
     line-height: 1.19;
     padding: 5%;
 }
+.is-hidden {
+    display: none;
+    color: aquamarine;
+    opacity: 1;
+}
+
+
+/* .test {
+  display: none;
+} */

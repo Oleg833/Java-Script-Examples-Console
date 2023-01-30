@@ -77,4 +77,359 @@ console.log('Good');
 // atTheOldToad.addPotion({ name: "Dragon breath", price: 780 });
 // atTheOldToad.updatePotionName('Dragon breath', 'Aligator breath');
 // console.table(atTheOldToad.getPotions());
-console.log('Good');
+// console.log('Good');
+
+// class Car {
+//   // Change code below this line
+//   #brand;
+//   constructor({ brand, model, price }) {
+//     this.#brand = brand;
+//     this.model = model;
+//     this.price = price;
+//   }
+//   getBrand() {
+//     return this.#brand;
+//   }
+//   changeBrand(newBrand) {
+//     this.#brand = newBrand;
+//   }
+//   // Change code above this line
+// }
+// console.log(new Car({ brand: 'Audi', model: 'Q3', price: 36000 }));
+// console.log(new Car({ brand: 'bmw', model: 'X5', price: 58900 }));
+// console.log(new Car({ brand: 'Nissan', model: 'Murano', price: 31700 }));
+// const Bmw = new Car({ brand: 'BMW', model: 'X5', price: 58900 });
+// console.log(Bmw.getBrand());
+// Bmw.changeBrand('Honda');
+// console.log(Bmw);
+
+// class Car {
+//   // Change code below this line
+//   static MAX_PRICE = 50000;
+//   #price;
+//   constructor({ price }) {
+//     this.#price = price;
+//   }
+//   get price() {
+//     return this.#price;
+//   }
+//   set price(newPrice) {
+//     if (newPrice <= Car.MAX_PRICE) {
+//       this.#price = newPrice;
+//     }
+//   }
+//   // Change code above this line
+// }
+// const audi = new Car({ price: 35000 });
+// console.log(audi.price); // 35000
+// audi.price = 49000;
+// console.log(audi.price); // 49000
+// audi.price = 51000;
+// console.log(audi.price); // 49000
+
+// function calculateTotalPrice(orderedItems) {
+//   let totalPrice = 0;
+//   // Change code below this line
+//   orderedItems.forEach(function (number, index) {
+//     totalPrice += number;
+//     console.log(`Індекс Test ${index}, значення ${number}`);
+//     console.log(`Total = ${totalPrice}`);
+//   });
+//   // Change code above this line
+//   return totalPrice;
+// }
+
+// const calculateTotalPrice = orderedItems => {
+//   let totalPrice = 0;
+
+//   orderedItems.forEach(item => (totalPrice += item));
+//   console.log(totalPrice);
+//   return totalPrice;
+// };
+
+// calculateTotalPrice([12, 85, 37, 4]);
+
+// const numbers = [5, 10, 15, 20, 25];
+// Класичний for
+// for (let i = 0; i < numbers.length; i += 1) {
+//   console.log(`Індекс ${i}, значення ${numbers[i]}`);
+// }
+// Метод перебирання forEach
+// numbers.forEach(function (number, index) {
+//   console.log(`Індекс ${index}, значення ${number}`);
+// });
+
+// const students = [
+//   { name: 'Манго', courses: ['математика', 'фізика'] },
+//   { name: 'Полі', courses: ['інформатика', 'математика'] },
+//   { name: 'Ківі', courses: ['фізика', 'біологія'] },
+// ];
+
+// const testCourses = students.flatMap(({ courses }) => courses);
+// console.log(testCourses);
+
+// const uniqueCourses = testCourses.filter((course, index, array) => array.indexOf(course) === index);
+// console.log(uniqueCourses);
+
+// const userName = students.filter(students => students.courses.includes('фізика'));
+// console.log(userName);
+// const isName = userName.map(({ name }) => name);
+// console.log(isName);
+
+// const nameArray = [
+//   {
+//     name: 'Moore Hensley',
+//     email: 'moorehensley@indexia.com',
+//     eyeColor: 'blue',
+//     friends: ['Sharron Pace'],
+//     isActive: false,
+//     balance: 2811,
+//     gender: 'male',
+//     age: 37,
+//   },
+//   {
+//     name: 'Sharlene Bush',
+//     email: 'sharlenebush@tubesys.com',
+//     eyeColor: 'blue',
+//     friends: ['Briana Decker', 'Sharron Pace'],
+//     isActive: true,
+//     balance: 3821,
+//     gender: 'female',
+//     age: 34,
+//   },
+//   {
+//     name: 'Ross Vazquez',
+//     email: 'rossvazquez@xinware.com',
+//     eyeColor: 'green',
+//     friends: ['Marilyn Mcintosh', 'Padilla Garrison', 'Naomi Buckner'],
+//     isActive: false,
+//     balance: 3793,
+//     gender: 'male',
+//     age: 24,
+//   },
+//   {
+//     name: 'Elma Head',
+//     email: 'elmahead@omatom.com',
+//     eyeColor: 'green',
+//     friends: ['Goldie Gentry', 'Aisha Tran'],
+//     isActive: true,
+//     balance: 2278,
+//     gender: 'female',
+//     age: 21,
+//   },
+//   {
+//     name: 'Carey Barr',
+//     email: 'careybarr@nurali.com',
+//     eyeColor: 'blue',
+//     friends: ['Jordan Sampson', 'Eddie Strong', 'Adrian Cross'],
+//     isActive: true,
+//     balance: 3951,
+//     gender: 'male',
+//     age: 27,
+//   },
+//   {
+//     name: 'Blackburn Dotson',
+//     email: 'blackburndotson@furnigeer.com',
+//     eyeColor: 'brown',
+//     friends: ['Jacklyn Lucas', 'Linda Chapman', 'Adrian Cross', 'Solomon Fokes'],
+//     isActive: false,
+//     balance: 1498,
+//     gender: 'male',
+//     age: 38,
+//   },
+//   {
+//     name: 'Sheree Anthony',
+//     email: 'shereeanthony@kog.com',
+//     eyeColor: 'brown',
+//     friends: ['Goldie Gentry', 'Briana Decker'],
+//     isActive: true,
+//     balance: 2764,
+//     gender: 'female',
+//     age: 39,
+//   },
+// ];
+
+// const getActiveUsers = users => users.filter(user => user.isActive).map(({ name }) => name);
+// console.log(getActiveUsers(nameArray));
+
+// const books = [
+//   {
+//     title: 'The Last Kingdom',
+//     author: 'Bernard Cornwell',
+//     rating: 8.38,
+//   },
+//   {
+//     title: 'Beside Still Waters',
+//     author: 'Robert Sheckley',
+//     rating: 8.51,
+//   },
+//   {
+//     title: 'The Dream of a Ridiculous Man',
+//     author: 'Fyodor Dostoevsky',
+//     rating: 7.75,
+//   },
+//   { title: 'Redder Than Blood', author: 'Tanith Lee', rating: 7.94 },
+//   { title: 'Enemy of God', author: 'Bernard Cornwell', rating: 8.67 },
+// ];
+// const MIN_BOOK_RATING = 8;
+
+// const names = books
+//   .filter(book => book.rating > MIN_BOOK_RATING)
+//   .map(book => book.author)
+//   .sort((a, b) => a.localeCompare(b));
+// console.log(names);
+
+// const getNamesSortedByFriendCount = users =>
+//   [...users].sort((a, b) => a.friends.length - b.friends.length).map(a => a.name);
+// console.log(getNamesSortedByFriendCount(nameArray));
+
+// const getSortedFriends = users =>
+//   users
+//     .flatMap(a => a.friends)
+//     .filter((course, index, array) => array.indexOf(course) === index)
+//     .sort();
+// console.log(getSortedFriends(nameArray));
+// const getTotalBalanceByGender = (users, gender) =>
+//   users.filter(a => a.gender === gender).reduce((sum, user) => sum + user.balance, 0);
+
+// console.log(getTotalBalanceByGender(nameArray, 'male'));
+// console.log(getTotalBalanceByGender(nameArray, 'female'));
+// const players = users => users.map(({ name, age }) => ({ name, age }));
+// console.log(players(nameArray));
+
+// const ageReduce = users =>
+//   users.map(({ name, age }) => ({ name, age })).map(users => ({ ...users, age: users.age + 100 }));
+// console.table(ageReduce(nameArray));
+
+// // Change code below this line
+// const sortedByAuthorName = [...books].sort((a, b) => a.author.localeCompare(b.author));
+// console.log(sortedByAuthorName);
+// const sortedByReversedAuthorName = [...books].sort((a, b) => b.author.localeCompare(a.author));
+// console.log(sortedByReversedAuthorName);
+// const sortedByAscendingRating = [...books].sort((a, b) => a.rating - b.rating);
+// console.log(sortedByAscendingRating);
+// const sortedByDescentingRating = [...books].sort((a, b) => b.rating - a.rating);
+// console.log(sortedByDescentingRating);
+
+// const sortByDescendingFriendCount = users =>
+//   [...users].sort((a, b) => b.friends.length - a.friends.length);
+// console.log(sortByDescendingFriendCount(nameArray));
+// const sortByName = users => [...users].sort((a, b) => a.name.localeCompare(b.name));
+// console.log(sortByName(nameArray));
+
+// const students = [
+//   { name: 'Mango', score: 83 },
+//   { name: 'Poly', score: 59 },
+//   { name: 'Ajax', score: 37 },
+//   { name: 'Kiwi', score: 94 },
+// ];
+
+// const inAscendingScoreOrder = [...students].sort((a, b) => a.score - b.score);
+// console.log(inAscendingScoreOrder);
+// const inDescendingScoreOrder = [...students].sort(
+//   (firstStudent, secondStudent) => secondStudent.score - firstStudent.score
+// );
+// console.log(inDescendingScoreOrder);
+// const inAlphabeticalOrder = [...students].sort((firstStudent, secondStudent) =>
+//   firstStudent.name.localeCompare(secondStudent.name)
+// );
+// console.log(inAlphabeticalOrder);
+
+const itemElements = document.querySelectorAll('.item');
+console.log(`Number of categories: ` + itemElements.length);
+const resultArray = [...itemElements]
+  .map(
+    item => `Category: ${item.children[0].textContent} 
+    Elements: ${item.children[1].children.length}`
+  )
+  .join('\n');
+console.log(resultArray);
+
+// firstElementChild и lastElementChild
+// const listOfCategory = document.querySelector('#categories');
+// const listOfClassItem = listOfCategory.querySelectorAll('.item');
+// console.log(`Number of categories: ${listOfClassItem.length}`);
+// listOfClassItem.forEach(item => {
+//   console.log(`Category: ${item.firstElementChild.textContent}`);
+//   console.log(`Elements: ${item.lastElementChild.children.length}`);
+// });
+
+// const listCategories = document.querySelector('#categories');
+// const liWithClasses = listCategories.querySelectorAll('.item');
+// console.log('Number of categories:', liWithClasses.length);
+// for (let liWithClass of liWithClasses) {
+//   console.log('Category:', liWithClass.firstElementChild.textContent);
+//   console.log('Elements:', liWithClass.lastElementChild.children.length);
+// }
+
+// const totalCategories = document.querySelectorAll('.item');
+// console.log(`Number of categories: ${totalCategories.length}`);
+// const categoriesArray = [...totalCategories]
+//   .map(
+//     categories => `Category: ${categories.children[0].textContent}
+//     Elements: ${categories.children[1].children.length}`
+//   )
+//   .join('\n');
+
+// const elemantItem = document.querySelectorAll('.item');
+// // elemantItem.style.textTransform = 'uppercase';
+// // elemantItem.style.fontSize = '44px';
+// console.log(elemantItem);
+// const categories = document.querySelector('body');
+// // categories.classList.toggle('is-hidden');
+// // categories.style.opacity = 1;
+// // document.body.classList.add('is-hidden');
+
+// const bodyItems = document.querySelectorAll('.item');
+// console.log(bodyItems[0].children[0].textContent);
+// console.log(bodyItems[0].firstElementChild.nextElementSibling.children.length);
+// console.log(bodyItems[0].lastElementChild.children.length);
+// console.log(bodyItems[0].children[1].children.length);
+
+// let fragment = new DocumentFragment();
+
+// for (const value of ingredients) {
+//   const itemOfIngredientsEl = document.createElement('li');
+//   itemOfIngredientsEl.classList.add('item');
+//   console.log(`Name of potions: ${value}`);
+//   itemOfIngredientsEl.textContent += value;
+//   fragment.appendChild(itemOfIngredientsEl);
+// }
+
+// document.querySelector('ul#ingredients').append(fragment);
+
+// console.log('good');
+
+// start.append(lastItem);
+
+// const categories = document.querySelector('body');
+// // categories.classList.toggle('is-hidden');
+// categories.classList.add('is-hidden');
+// // categories.style.opacity = 1;
+// // document.body.classList.add('is-hidden');
+
+// const list = document.querySelector('#ingredients');
+
+// // Adds an item to the end of the list
+// const lastItem = document.createElement('li');
+// lastItem.classList.add('item');
+// lastItem.textContent = 'Poly';
+// console.log(lastItem);
+
+// list.append(lastItem);
+
+// Adds an item to the beginning of the list
+// const firstItem = document.createElement('li');
+// firstItem.textContent = 'Ajax';
+// list.prepend(firstItem);
+
+// Adds a title before the list
+// const title = document.createElement('h2');
+// title.textContent = 'USERNAMES';
+// list.before(title);
+
+// Adds a paragraph after the list
+// const text = document.createElement('p');
+// text.textContent =
+//   'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum tenetur assumenda fugiat maxime, soluta aspernatur quasi nihil in asperiores ad distinctio illo et debitis error iure voluptate numquam maiores nisi. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum tenetur assumenda fugiat maxime, soluta aspernatur quasi nihil in asperiores ad distinctio illo et debitis error iure voluptate numquam maiores nisi!';
+// list.after(text);
