@@ -32,17 +32,25 @@
         <nav>
           <ul class="site-nav__list">
             <li class="site-nav__item">
-              <h3 class="about__subtitle">Text h3</h3>
-              <p class="about__text">text paragraph</p>
-              <a href="" class="aboutLink">anchor</a>
+              <h3 class="site-nav__subtitle">Text h3</h3>
+              <p class="site-nav__text">text paragraph</p>
+              <a href="./index.html" class="site-nav__Link">anchor</a>
             </li>
-            <li class="site-nav__item">
-              <h3 class="about__subtitle">Text 2 h3</h3>
-              <p class="about__text">text 2 paragraph</p>
-              <a href="" class="aboutLink">anchor 2</a>
+            <li id="ingredients" class="site-nav__item">
+              <h3 class="site-nav__subtitle">Text 2 h3</h3>
+              <p class="site-nav__text">text 2 paragraph</p>
+              <a href="./index.html" class="site-nav__Link">anchor 2</a>
             </li>
           </ul>
         </nav>
+        <div id="counter">
+          <button type="button" data-action="decrement">-1</button>
+          <span id="value">0</span>
+          <button type="button" data-action="increment">+1</button>
+        </div>
+        <button type="button" class="js-target-btn">Целевая кнопка</button>
+        <button type="button" class="js-add-listener">Добавить слушателя</button>
+        <button type="button" class="js-remove-listener">Снять слушателя</button>
       </div>
     </header>
     <main>

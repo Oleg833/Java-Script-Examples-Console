@@ -335,15 +335,15 @@ console.log('Good');
 // );
 // console.log(inAlphabeticalOrder);
 
-const itemElements = document.querySelectorAll('.item');
-console.log(`Number of categories: ` + itemElements.length);
-const resultArray = [...itemElements]
-  .map(
-    item => `Category: ${item.children[0].textContent} 
-    Elements: ${item.children[1].children.length}`
-  )
-  .join('\n');
-console.log(resultArray);
+// const itemElements = document.querySelectorAll('.item');
+// console.log(`Number of categories: ` + itemElements.length);
+// const resultArray = [...itemElements]
+//   .map(
+//     item => `Category: ${item.children[0].textContent}
+//     Elements: ${item.children[1].children.length}`
+//   )
+//   .join('\n');
+// console.log(resultArray);
 
 // firstElementChild и lastElementChild
 // const listOfCategory = document.querySelector('#categories');
@@ -386,50 +386,166 @@ console.log(resultArray);
 // console.log(bodyItems[0].lastElementChild.children.length);
 // console.log(bodyItems[0].children[1].children.length);
 
-// let fragment = new DocumentFragment();
+// const ingredients = ['Potatoes', 'Mushrooms', 'Garlic', 'Tomatos', 'Herbs', 'Condiments'];
+// // const markup = ingredients.map(ingredient => `<li class="item">${ingredient}</li>`).join('\n');
+// const markup = ingredients.reduce(
+//   (acc, ingredient) => acc + `<li class="item">${ingredient}</li>`,
+//   ''
+// );
+// console.log(markup);
+// document.querySelector('#ingredients').innerHTML = markup;
+
+// const fragment = new DocumentFragment();
 
 // for (const value of ingredients) {
 //   const itemOfIngredientsEl = document.createElement('li');
 //   itemOfIngredientsEl.classList.add('item');
 //   console.log(`Name of potions: ${value}`);
-//   itemOfIngredientsEl.textContent += value;
+//   itemOfIngredientsEl.textContent = value;
+//   console.log(itemOfIngredientsEl.textContent);
 //   fragment.appendChild(itemOfIngredientsEl);
 // }
-
-// document.querySelector('ul#ingredients').append(fragment);
-
-// console.log('good');
-
-// start.append(lastItem);
+// document.querySelector('#ingredients').append(fragment);
 
 // const categories = document.querySelector('body');
 // // categories.classList.toggle('is-hidden');
 // categories.classList.add('is-hidden');
-// // categories.style.opacity = 1;
-// // document.body.classList.add('is-hidden');
+// categories.style.opacity = 1;
+// document.body.classList.add('is-hidden');
 
-// const list = document.querySelector('#ingredients');
+// const images = [
+//   {
+//     url: 'https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+//     alt: 'White and Black Long Fur Cat',
+//   },
+//   {
+//     url: 'https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+//     alt: 'Orange and White Koi Fish Near Yellow Koi Fish',
+//   },
+//   {
+//     url: 'https://images.pexels.com/photos/219943/pexels-photo-219943.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+//     alt: 'Group of Horses Running',
+//   },
+// ];
+// const markup = images
+//   .map(
+//     ({ url, alt }) => `<li class="gallery-item"><img src="${url}" alt="${alt}" width="1260"></li>`
+//   )
+//   .join('');
+// const list = document.querySelector('ul.gallery');
 
-// // Adds an item to the end of the list
-// const lastItem = document.createElement('li');
-// lastItem.classList.add('item');
-// lastItem.textContent = 'Poly';
-// console.log(lastItem);
+// list.insertAdjacentHTML('beforeend', markup);
+// list.insertAdjacentHTML('beforebegin', '<h2>Popular gallery</h2>');
+// const makeImages = ({ url, alt }) => {
+//   const galleryEl = document.createElement('li');
+//   galleryEl.classList.add('gallery-item');
 
-// list.append(lastItem);
+//   const imagesCardEl = document.createElement('img');
+//   imagesCardEl.src = url;
+//   imagesCardEl.alt = alt;
+//   imagesCardEl.width = 320;
 
-// Adds an item to the beginning of the list
-// const firstItem = document.createElement('li');
-// firstItem.textContent = 'Ajax';
-// list.prepend(firstItem);
+//   galleryEl.append(imagesCardEl);
 
-// Adds a title before the list
-// const title = document.createElement('h2');
-// title.textContent = 'USERNAMES';
-// list.before(title);
+//   return galleryEl;
+// };
+// const makeImageCard = ({ url, alt }) => {
+//   const imageCardEl = document.createElement('li');
+//   imageCardEl.classList.add('product__card');
 
-// Adds a paragraph after the list
-// const text = document.createElement('p');
-// text.textContent =
-//   'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum tenetur assumenda fugiat maxime, soluta aspernatur quasi nihil in asperiores ad distinctio illo et debitis error iure voluptate numquam maiores nisi. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum tenetur assumenda fugiat maxime, soluta aspernatur quasi nihil in asperiores ad distinctio illo et debitis error iure voluptate numquam maiores nisi!';
-// list.after(text);
+//   const titleEl = document.createElement('h2');
+//   titleEl.classList.add('product__name');
+//   titleEl.textContent = 'USERNAMES';
+//   titleEl.style.color = 'yellowgreen';
+
+//   const myImageEl = document.createElement('img');
+//   myImageEl.classList.add('product__images');
+//   myImageEl.src = url;
+//   myImageEl.alt = alt;
+//   myImageEl.width = 320;
+//   myImageEl.style.display = 'block';
+//   myImageEl.style.paddingTop = '10px';
+
+//   const imageTextEl = document.createElement('p');
+//   imageTextEl.textContent = alt;
+//   imageTextEl.style.fontSize = '24px';
+//   imageTextEl.style.fontWeight = 500;
+//   imageTextEl.style.color = 'tomato';
+
+//   imageCardEl.append(titleEl, myImageEl, imageTextEl);
+
+//   return imageCardEl;
+// };
+// const imageGalery = images.map(makeImageCard);
+// const fdd = images.reduce(
+//   (acc, { url, alt }) =>
+//     acc + `<li class="gallery-item"><img src="${url}" alt="${alt}" width="1260"></li>`,
+//   ''
+// );
+// console.log(fdd);
+// document.querySelector('#ingredients').append(...imageGalery);
+// const makeProductCard = (name = 'default', description = 'default', price = 0, { url, alt }) => {
+//   const productEl = document.createElement('article');
+//   productEl.classList.add('product');
+
+//   const nameEl = document.createElement('h2');
+//   nameEl.textContent = name;
+//   nameEl.classList.add('product__name');
+//   nameEl.style.color = 'yellowgreen';
+
+//   const descrEl = document.createElement('p');
+//   descrEl.textContent = description;
+//   descrEl.classList.add('product__descr');
+
+//   const imgEl = document.createElement('img');
+//   imgEl.src = url;
+//   imgEl.alt = alt;
+//   imgEl.width = 320;
+//   imgEl.style.display = 'block';
+//   imgEl.classList.add('product__images');
+
+//   const priceEl = document.createElement('p');
+//   priceEl.textContent = `Цена: ${price} кредитов`;
+//   priceEl.classList.add('product__price');
+
+//   productEl.append(nameEl, descrEl, imgEl, priceEl);
+
+//   return productEl;
+// };
+// const ProductCard = makeProductCard('OLeh', 'business', 500, images[2]);
+// const ListStart = document.querySelector('.site-nav__item');
+// ListStart.append(ProductCard);
+
+// const targetBtn = document.querySelector('.js-target-btn');
+// const addListenerBtn = document.querySelector('.js-add-listener');
+// const removeListenerBtn = document.querySelector('.js-remove-listener');
+
+// addListenerBtn.addEventListener('click', () => {
+//   console.log('Вешаю слушателя собітий на целевую кнопку');
+//   targetBtn.addEventListener('click', onTargetBtnClick);
+// });
+// removeListenerBtn.addEventListener('click', () => {
+//   console.log('Снимаю слушателя с целевой кнопки');
+
+//   targetBtn.removeEventListener('click', onTargetBtnClick);
+// });
+
+// let value = 0;
+// const onTargetBtnClick = () => (
+//   console.log('Клик по целевой кнопке'), (value += 1), console.log(value)
+// );
+
+// const handleTargetBtnClick = () => console.log('Click');
+// const targetBtnClickHandler = () => console.log('Click');
+// const LogMessage = () => console.log('Click');
+
+const decrementBtn = document.querySelector('#counter [data-action="decrement"]');
+const incrementBtn = document.querySelector('#counter [data-action="increment"]');
+const valueSpan = document.querySelector('#value');
+let counterValue = 0;
+
+const decrementClickValue = () => ((counterValue -= 1), (valueSpan.textContent = counterValue));
+const incrementClickValue = () => ((counterValue += 1), (valueSpan.textContent = counterValue));
+
+decrementBtn.addEventListener('click', decrementClickValue);
+incrementBtn.addEventListener('click', incrementClickValue);
