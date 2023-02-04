@@ -413,6 +413,22 @@ console.log('Good');
 // categories.style.opacity = 1;
 // document.body.classList.add('is-hidden');
 
+// const markup = images
+//   .map(
+//     ({ url, alt }) => `<li class="gallery-item"><img src="${url}" alt="${alt}" width="1260"></li>`
+//   )
+//   .join('');
+// const fdd = images.reduce(
+//   (acc, { url, alt }) =>
+//     acc + `<li class="gallery-item"><img src="${url}" alt="${alt}" width="1260"></li>`,
+//   ''
+// );
+// console.log(fdd);
+// const list = document.querySelector('ul.gallery');
+
+// list.insertAdjacentHTML('beforeend', markup);
+// list.insertAdjacentHTML('beforebegin', '<h2>Popular gallery</h2>');
+
 // const images = [
 //   {
 //     url: 'https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
@@ -427,28 +443,7 @@ console.log('Good');
 //     alt: 'Group of Horses Running',
 //   },
 // ];
-// const markup = images
-//   .map(
-//     ({ url, alt }) => `<li class="gallery-item"><img src="${url}" alt="${alt}" width="1260"></li>`
-//   )
-//   .join('');
-// const list = document.querySelector('ul.gallery');
 
-// list.insertAdjacentHTML('beforeend', markup);
-// list.insertAdjacentHTML('beforebegin', '<h2>Popular gallery</h2>');
-// const makeImages = ({ url, alt }) => {
-//   const galleryEl = document.createElement('li');
-//   galleryEl.classList.add('gallery-item');
-
-//   const imagesCardEl = document.createElement('img');
-//   imagesCardEl.src = url;
-//   imagesCardEl.alt = alt;
-//   imagesCardEl.width = 320;
-
-//   galleryEl.append(imagesCardEl);
-
-//   return galleryEl;
-// };
 // const makeImageCard = ({ url, alt }) => {
 //   const imageCardEl = document.createElement('li');
 //   imageCardEl.classList.add('product__card');
@@ -477,12 +472,6 @@ console.log('Good');
 //   return imageCardEl;
 // };
 // const imageGalery = images.map(makeImageCard);
-// const fdd = images.reduce(
-//   (acc, { url, alt }) =>
-//     acc + `<li class="gallery-item"><img src="${url}" alt="${alt}" width="1260"></li>`,
-//   ''
-// );
-// console.log(fdd);
 // document.querySelector('#ingredients').append(...imageGalery);
 // const makeProductCard = (name = 'default', description = 'default', price = 0, { url, alt }) => {
 //   const productEl = document.createElement('article');
@@ -519,33 +508,124 @@ console.log('Good');
 // const targetBtn = document.querySelector('.js-target-btn');
 // const addListenerBtn = document.querySelector('.js-add-listener');
 // const removeListenerBtn = document.querySelector('.js-remove-listener');
-
+// let value = 0;
+// const onTargetBtnClick = () => (
+//   console.log('Клик по целевой кнопке'), (value += 1), console.log(value)
+// );
 // addListenerBtn.addEventListener('click', () => {
 //   console.log('Вешаю слушателя собітий на целевую кнопку');
 //   targetBtn.addEventListener('click', onTargetBtnClick);
 // });
 // removeListenerBtn.addEventListener('click', () => {
 //   console.log('Снимаю слушателя с целевой кнопки');
-
 //   targetBtn.removeEventListener('click', onTargetBtnClick);
 // });
-
-// let value = 0;
-// const onTargetBtnClick = () => (
-//   console.log('Клик по целевой кнопке'), (value += 1), console.log(value)
-// );
 
 // const handleTargetBtnClick = () => console.log('Click');
 // const targetBtnClickHandler = () => console.log('Click');
 // const LogMessage = () => console.log('Click');
 
-const decrementBtn = document.querySelector('#counter [data-action="decrement"]');
-const incrementBtn = document.querySelector('#counter [data-action="increment"]');
-const valueSpan = document.querySelector('#value');
-let counterValue = 0;
+// const decrementBtn = document.querySelector('#counter [data-action="decrement"]');
+// const incrementBtn = document.querySelector('#counter [data-action="increment"]');
+// const counterEl = document.querySelector('#value');
+// let counterValue = 0;
 
-const decrementClickValue = () => ((counterValue -= 1), (valueSpan.textContent = counterValue));
-const incrementClickValue = () => ((counterValue += 1), (valueSpan.textContent = counterValue));
+// const decrementClickValue = () => ((counterValue -= 1), (counterEl.textContent = counterValue));
+// const incrementClickValue = () => ((counterValue += 1), (counterEl.textContent = counterValue));
 
-decrementBtn.addEventListener('click', decrementClickValue);
-incrementBtn.addEventListener('click', incrementClickValue);
+// decrementBtn.addEventListener('click', decrementClickValue);
+// incrementBtn.addEventListener('click', incrementClickValue);
+
+const inputText = document.querySelector('#name-input');
+const outputText = document.querySelector('#name-output');
+inputText.addEventListener('input', event => {
+  if (!event.currentTarget.value.trim()) {
+    return;
+  }
+  outputText.textContent = event.currentTarget.value.trim();
+});
+
+const textInput = document.querySelector('.text-input');
+const setFocusBtn = document.querySelector('[data-action="set"]');
+const removeFocusBtn = document.querySelector('[data-action="remove"]');
+setFocusBtn.addEventListener('click', () => {
+  textInput.focus();
+});
+removeFocusBtn.addEventListener('click', () => {
+  textInput.blur();
+});
+textInput.addEventListener('focus', () => {
+  textInput.value = 'This input has focus';
+});
+textInput.addEventListener('blur', () => {
+  textInput.value = '';
+});
+
+const validInput = document.querySelector('#validation-input');
+const verificationInput = event => {
+  if (event.currentTarget.value.trim().length === parseInt(validInput.dataset.length)) {
+    validInput.classList.add('valid');
+    return;
+  }
+  validInput.classList.add('invalid');
+};
+validInput.addEventListener('blur', verificationInput);
+
+const inputRange = document.querySelector('#font-size-control');
+const rangeText = document.querySelector('#text');
+const selectRange = event => (
+  (rangeText.style.fontSize = event.currentTarget.value + `px`),
+  console.log(event.currentTarget.value + `px`)
+);
+inputRange.addEventListener('input', selectRange);
+
+const form = document.querySelector('.register-form');
+form.addEventListener('submit', event => {
+  event.preventDefault();
+  const {
+    elements: { username, password },
+  } = event.currentTarget;
+  console.log(username.value, password.value);
+});
+const onFormSubmit = event => (
+  event.preventDefault(), console.log('currentTarget:', event.currentTarget)
+);
+const formSubmit = form.addEventListener('submit', onFormSubmit);
+
+const loginForm = document.querySelector('.login-form');
+
+const onLoginEventCurrentTarget = event => {
+  event.preventDefault();
+  const {
+    elements: { email, password },
+  } = event.currentTarget;
+
+  if (!password.value.trim()) {
+    alert('Заповніть всі поля!');
+    return;
+  }
+  console.log(email.value, password.value);
+  event.currentTarget.reset();
+};
+
+loginForm.addEventListener('submit', onLoginEventCurrentTarget);
+
+const onLoginFormSubmit = event => {
+  event.preventDefault();
+  const formDataNew = new FormData(event.currentTarget);
+};
+
+function getRandomHexColor() {
+  return `#${Math.floor(Math.random() * 16777215)
+    .toString(16)
+    .padStart(6, 0)}`;
+}
+const widgetBtn = document.querySelector('.change-color');
+const BgdColorValueEl = document.querySelector('.color');
+const BtnClick = () => {
+  const value = getRandomHexColor();
+  document.body.style.backgroundColor = value;
+  BgdColorValueEl.textContent = value;
+};
+
+widgetBtn.addEventListener('click', BtnClick);
