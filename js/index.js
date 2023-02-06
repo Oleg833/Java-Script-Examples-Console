@@ -642,3 +642,132 @@ console.log('Good');
 // };
 
 // widgetBtn.addEventListener('click', BtnClick);
+
+// const clearLogBtn = document.querySelector('[data-action="clear"]');
+// const logList = document.querySelector('.log-list');
+// let keypressCounter = 1;
+
+// document.addEventListener('keydown', logMessage);
+// document.addEventListener('keyup', logMessage);
+// clearLogBtn.addEventListener('click', reset);
+
+// function logMessage({ type, key, code }) {
+//   const markup = `<div class="log-item">
+//     <span class="chip">${keypressCounter}</span>
+//     <ul>
+//       <li><b>Event</b>: ${type}</li>
+//       <li><b>Key</b>: ${key}</li>
+//       <li><b>Code</b>: ${code}</li>
+//     </ul>
+//   </div>`;
+
+//   logList.insertAdjacentHTML('afterbegin', markup);
+
+//   if (type === 'keyup') {
+//     incrementKeypressCounter();
+//   }
+// }
+
+// function reset() {
+//   keypressCounter = 1;
+//   logList.innerHTML = '';
+// }
+
+// function incrementKeypressCounter() {
+//   keypressCounter += 1;
+// }
+
+// const select = document.querySelector('.pizza-select');
+// const textOutput = document.querySelector('.text-output');
+// const valueOutput = document.querySelector('.value-output');
+
+// setOutput();
+
+// select.addEventListener('change', setOutput);
+
+// function setOutput() {
+//   const selectedOptionValue = select.value;
+//   const selectedOptionIndex = select.selectedIndex;
+//   const selectedOptionText = select.options[selectedOptionIndex].text;
+//   console.log(
+//     `selectedOptionValue:` +
+//       selectedOptionValue +
+//       `  selectedOptionIndex:` +
+//       selectedOptionIndex +
+//       `  selectedOptionText:` +
+//       selectedOptionText
+//   );
+
+//   textOutput.textContent = selectedOptionText;
+//   valueOutput.textContent = selectedOptionValue;
+// }
+
+// const parent = document.querySelector('#parent');
+// const child = document.querySelector('#child');
+// const descendant = document.querySelector('#descendant');
+
+// parent.addEventListener('click', () => {
+//   alert('Parent click handler');
+// });
+
+// child.addEventListener('click', () => {
+//   alert('Child click handler');
+// });
+
+// descendant.addEventListener('click', () => {
+//   alert('Descendant click handler');
+// });
+// const parent = document.querySelector('#parent');
+
+// parent.addEventListener('click', event => {
+//   console.log('event.target: ', event.target);
+//   console.log('event.currentTarget: ', event.currentTarget);
+// });
+
+// document.querySelector('#descendant').addEventListener('click', event => {
+//   event.stopPropagation();
+//   alert('Descendant click handler');
+// });
+
+const colorPalette = document.querySelector('.color-palette');
+const output = document.querySelector('.output');
+
+colorPalette.addEventListener('click', selectColor);
+
+// This is where delegation «magic» happens
+function selectColor(event) {
+  if (event.target.nodeName !== 'BUTTON') {
+    return;
+  }
+
+  const selectedColor = event.target.dataset.color;
+  output.textContent = `Selected color: ${selectedColor}`;
+  output.style.color = selectedColor;
+}
+
+// Some helper functions to render palette items
+createPaletteItems();
+
+function createPaletteItems() {
+  const items = [];
+  for (let i = 0; i < 60; i++) {
+    const color = getRandomColor();
+    const item = document.createElement('button');
+    item.type = 'button';
+    item.dataset.color = color;
+    item.style.backgroundColor = color;
+    item.classList.add('item');
+    items.push(item);
+  }
+  colorPalette.append(...items);
+}
+
+function getRandomColor() {
+  return `#${getRandomHex()}${getRandomHex()}${getRandomHex()}`;
+}
+
+function getRandomHex() {
+  return Math.round(Math.random() * 256)
+    .toString(16)
+    .padStart(2, '0');
+}
