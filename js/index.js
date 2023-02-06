@@ -471,6 +471,19 @@ console.log('Good');
 
 //   return imageCardEl;
 // };
+
+// const fragmentDiv = new DocumentFragment();
+// let startSize = 30;
+
+// const divCreator = length => {
+//   const divEl = document.createElement('div');
+//   divEl.style.margin = '10px';
+//   divEl.style.width = startSize + 'px';
+//   divEl.style.height = startSize + 'px';
+//   divEl.style.backgroundColor = generator;
+//   return fragmentDiv.append(divEl);
+// };
+// startSize += 10;
 // const imageGalery = images.map(makeImageCard);
 // document.querySelector('#ingredients').append(...imageGalery);
 // const makeProductCard = (name = 'default', description = 'default', price = 0, { url, alt }) => {
@@ -536,96 +549,96 @@ console.log('Good');
 // decrementBtn.addEventListener('click', decrementClickValue);
 // incrementBtn.addEventListener('click', incrementClickValue);
 
-const inputText = document.querySelector('#name-input');
-const outputText = document.querySelector('#name-output');
-inputText.addEventListener('input', event => {
-  if (!event.currentTarget.value.trim()) {
-    return;
-  }
-  outputText.textContent = event.currentTarget.value.trim();
-});
+// const inputText = document.querySelector('#name-input');
+// const outputText = document.querySelector('#name-output');
+// inputText.addEventListener('input', event => {
+//   if (!event.currentTarget.value.trim()) {
+//     return;
+//   }
+//   outputText.textContent = event.currentTarget.value.trim();
+// });
 
-const textInput = document.querySelector('.text-input');
-const setFocusBtn = document.querySelector('[data-action="set"]');
-const removeFocusBtn = document.querySelector('[data-action="remove"]');
-setFocusBtn.addEventListener('click', () => {
-  textInput.focus();
-});
-removeFocusBtn.addEventListener('click', () => {
-  textInput.blur();
-});
-textInput.addEventListener('focus', () => {
-  textInput.value = 'This input has focus';
-});
-textInput.addEventListener('blur', () => {
-  textInput.value = '';
-});
+// const textInput = document.querySelector('.text-input');
+// const setFocusBtn = document.querySelector('[data-action="set"]');
+// const removeFocusBtn = document.querySelector('[data-action="remove"]');
+// setFocusBtn.addEventListener('click', () => {
+//   textInput.focus();
+// });
+// removeFocusBtn.addEventListener('click', () => {
+//   textInput.blur();
+// });
+// textInput.addEventListener('focus', () => {
+//   textInput.value = 'This input has focus';
+// });
+// textInput.addEventListener('blur', () => {
+//   textInput.value = '';
+// });
 
-const validInput = document.querySelector('#validation-input');
-const verificationInput = event => {
-  if (event.currentTarget.value.trim().length === parseInt(validInput.dataset.length)) {
-    validInput.classList.add('valid');
-    return;
-  }
-  validInput.classList.add('invalid');
-};
-validInput.addEventListener('blur', verificationInput);
+// const validInput = document.querySelector('#validation-input');
+// const verificationInput = event => {
+//   if (event.currentTarget.value.trim().length === parseInt(validInput.dataset.length)) {
+//     validInput.classList.add('valid');
+//     return;
+//   }
+//   validInput.classList.add('invalid');
+// };
+// validInput.addEventListener('blur', verificationInput);
 
-const inputRange = document.querySelector('#font-size-control');
-const rangeText = document.querySelector('#text');
-const selectRange = event => (
-  (rangeText.style.fontSize = event.currentTarget.value + `px`),
-  console.log(event.currentTarget.value + `px`)
-);
-inputRange.addEventListener('input', selectRange);
+// const inputRange = document.querySelector('#font-size-control');
+// const rangeText = document.querySelector('#text');
+// const selectRange = event => (
+//   (rangeText.style.fontSize = event.currentTarget.value + `px`),
+//   console.log(event.currentTarget.value + `px`)
+// );
+// inputRange.addEventListener('input', selectRange);
 
-const form = document.querySelector('.register-form');
-form.addEventListener('submit', event => {
-  event.preventDefault();
-  const {
-    elements: { username, password },
-  } = event.currentTarget;
-  console.log(username.value, password.value);
-});
-const onFormSubmit = event => (
-  event.preventDefault(), console.log('currentTarget:', event.currentTarget)
-);
-const formSubmit = form.addEventListener('submit', onFormSubmit);
+// const form = document.querySelector('.register-form');
+// form.addEventListener('submit', event => {
+//   event.preventDefault();
+//   const {
+//     elements: { username, password },
+//   } = event.currentTarget;
+//   console.log(username.value, password.value);
+// });
+// const onFormSubmit = event => (
+//   event.preventDefault(), console.log('currentTarget:', event.currentTarget)
+// );
+// const formSubmit = form.addEventListener('submit', onFormSubmit);
 
-const loginForm = document.querySelector('.login-form');
+// const loginForm = document.querySelector('.login-form');
 
-const onLoginEventCurrentTarget = event => {
-  event.preventDefault();
-  const {
-    elements: { email, password },
-  } = event.currentTarget;
+// const onLoginEventCurrentTarget = event => {
+//   event.preventDefault();
+//   const {
+//     elements: { email, password },
+//   } = event.currentTarget;
 
-  if (!password.value.trim()) {
-    alert('Заповніть всі поля!');
-    return;
-  }
-  console.log(email.value, password.value);
-  event.currentTarget.reset();
-};
+//   if (!password.value.trim()) {
+//     alert('Заповніть всі поля!');
+//     return;
+//   }
+//   console.log(email.value, password.value);
+//   event.currentTarget.reset();
+// };
 
-loginForm.addEventListener('submit', onLoginEventCurrentTarget);
+// loginForm.addEventListener('submit', onLoginEventCurrentTarget);
 
-const onLoginFormSubmit = event => {
-  event.preventDefault();
-  const formDataNew = new FormData(event.currentTarget);
-};
+// const onLoginFormSubmit = event => {
+//   event.preventDefault();
+//   const formDataNew = new FormData(event.currentTarget);
+// };
 
-function getRandomHexColor() {
-  return `#${Math.floor(Math.random() * 16777215)
-    .toString(16)
-    .padStart(6, 0)}`;
-}
-const widgetBtn = document.querySelector('.change-color');
-const BgdColorValueEl = document.querySelector('.color');
-const BtnClick = () => {
-  const value = getRandomHexColor();
-  document.body.style.backgroundColor = value;
-  BgdColorValueEl.textContent = value;
-};
+// function getRandomHexColor() {
+//   return `#${Math.floor(Math.random() * 16777215)
+//     .toString(16)
+//     .padStart(6, 0)}`;
+// }
+// const widgetBtn = document.querySelector('.change-color');
+// const BgdColorValueEl = document.querySelector('.color');
+// const BtnClick = () => {
+//   const value = getRandomHexColor();
+//   document.body.style.backgroundColor = value;
+//   BgdColorValueEl.textContent = value;
+// };
 
-widgetBtn.addEventListener('click', BtnClick);
+// widgetBtn.addEventListener('click', BtnClick);
