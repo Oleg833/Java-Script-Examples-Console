@@ -471,21 +471,9 @@ console.log('Good');
 
 //   return imageCardEl;
 // };
-
-// const fragmentDiv = new DocumentFragment();
-// let startSize = 30;
-
-// const divCreator = length => {
-//   const divEl = document.createElement('div');
-//   divEl.style.margin = '10px';
-//   divEl.style.width = startSize + 'px';
-//   divEl.style.height = startSize + 'px';
-//   divEl.style.backgroundColor = generator;
-//   return fragmentDiv.append(divEl);
-// };
-// startSize += 10;
 // const imageGalery = images.map(makeImageCard);
 // document.querySelector('#ingredients').append(...imageGalery);
+
 // const makeProductCard = (name = 'default', description = 'default', price = 0, { url, alt }) => {
 //   const productEl = document.createElement('article');
 //   productEl.classList.add('product');
@@ -517,6 +505,19 @@ console.log('Good');
 // const ProductCard = makeProductCard('OLeh', 'business', 500, images[2]);
 // const ListStart = document.querySelector('.site-nav__item');
 // ListStart.append(ProductCard);
+
+// const fragmentDiv = new DocumentFragment();
+// let startSize = 30;
+
+// const divCreator = length => {
+//   const divEl = document.createElement('div');
+//   divEl.style.margin = '10px';
+//   divEl.style.width = startSize + 'px';
+//   divEl.style.height = startSize + 'px';
+//   divEl.style.backgroundColor = generator;
+//   return fragmentDiv.append(divEl);
+// };
+// startSize += 10;
 
 // const targetBtn = document.querySelector('.js-target-btn');
 // const addListenerBtn = document.querySelector('.js-add-listener');
