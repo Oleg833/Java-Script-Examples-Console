@@ -730,45 +730,164 @@ console.log('Good');
 //   alert('Descendant click handler');
 // });
 
-const colorPalette = document.querySelector('.color-palette');
-const output = document.querySelector('.output');
+// const colorPalette = document.querySelector('.color-palette');
+// const output = document.querySelector('.output');
 
-colorPalette.addEventListener('click', selectColor);
+// colorPalette.addEventListener('click', selectColor);
 
-// This is where delegation «magic» happens
-function selectColor(event) {
-  if (event.target.nodeName !== 'BUTTON') {
-    return;
+// // This is where delegation «magic» happens
+// function selectColor(event) {
+//   if (event.target.nodeName !== 'BUTTON') {
+//     return;
+//   }
+//   const selectedColor = event.target.dataset.color;
+//   output.textContent = `Selected color: ${selectedColor}`;
+//   output.style.color = selectedColor;
+// }
+// // Some helper functions to render palette items
+// createPaletteItems();
+
+// function createPaletteItems() {
+//   const items = [];
+//   for (let i = 0; i < 60; i++) {
+//     const color = getRandomColor();
+//     const item = document.createElement('button');
+//     item.type = 'button';
+//     item.dataset.color = color;
+//     item.style.backgroundColor = color;
+//     item.classList.add('item');
+//     items.push(item);
+//   }
+//   colorPalette.append(...items);
+// }
+
+// function getRandomHex() {
+//   return Math.round(Math.random() * 256)
+//     .toString(16)
+//     .padStart(2, '0');
+// }
+
+{
+  /* <div>
+  <p class="taskTitle">ЗАДАЧА 2</p>
+  <button id="swapButton">SWAP ME</button>
+  <input id="leftSwapInput" type="text" value="???" />
+  <input id="rightSwapInput" type="text" value="!!!" />
+</div>; */
+}
+// Після натискання кнопки "SWAP ME" здійснюється обмін вмістом між двома інпутами.
+// Ви можете натиснути на неї кілька разів або вручну змінити вміст інпутів.
+
+import { galleryItems } from './gallery-items.js';
+
+const refs = {
+  backdrop: document.querySelector('.backdrop'),
+  openModalBtn: document.querySelector('.open-modal-btn'),
+  closeModalBtn: document.querySelector('.close-modal-btn'),
+  galleryList: document.querySelector('.gallery-list'),
+  modalWindow: document.querySelector('.modal'),
+  // modalImg: document.querySelector('.modal__img'),
+};
+
+refs.backdrop.addEventListener('click', onBackdropClick);
+refs.openModalBtn.addEventListener('click', onOpenModalBtnClick);
+// refs.openModalBtn.addEventListener('click', onOpenModalBtnClick, { once: true });
+refs.closeModalBtn.addEventListener('click', onCloseModalBtnClick);
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+function onOpenModalBtnClick() {
+  const next = getRandomInt(3);
+  console.log(`getRandomInt = `, next);
+  // document.querySelector('.modal__img').remove();
+  bildMarkupImgEl(galleryItems[next].original);
+  openModal();
+}
+function bildMarkupImgEl(srcOriginal) {
+  console.log(document.querySelector('.modal__img'));
+  if (document.querySelector('.modal__img')) {
+    console.log('Remove first 1');
+    document.querySelector('.modal__img').remove();
   }
-
-  const selectedColor = event.target.dataset.color;
-  output.textContent = `Selected color: ${selectedColor}`;
-  output.style.color = selectedColor;
+  const markup = `<img class="modal__img" src = "${srcOriginal}" style = "display:block; width:100%" >`;
+  refs.modalWindow.insertAdjacentHTML('afterbegin', markup);
+  // refs.modalWindow.innerHTML = markup;
+  console.log(document.querySelector('.modal__img'));
 }
-
-// Some helper functions to render palette items
-createPaletteItems();
-
-function createPaletteItems() {
-  const items = [];
-  for (let i = 0; i < 60; i++) {
-    const color = getRandomColor();
-    const item = document.createElement('button');
-    item.type = 'button';
-    item.dataset.color = color;
-    item.style.backgroundColor = color;
-    item.classList.add('item');
-    items.push(item);
+function onCloseModalBtnClick() {
+  closeModal();
+}
+function openModal() {
+  refs.backdrop.classList.remove('is-hidden');
+  document.addEventListener('keydown', onEscPress);
+}
+function closeModal() {
+  refs.backdrop.classList.add('is-hidden');
+  // document.removeEventListener('keydown', onEscPress);
+}
+function onEscPress(evt) {
+  console.log(evt.key, evt.code);
+  if (evt.code === 'Escape') {
+    closeModal();
   }
-  colorPalette.append(...items);
+}
+function onBackdropClick(e) {
+  if (e.currentTarget !== e.target) return;
+  closeModal();
+}
+function renderGallery(galleryItems) {
+  const markup = galleryItems
+    .map(({ preview, original, description }) => {
+      return `<li><a href="${original}"><img src="${preview}" alt="${description}"></a></li>`;
+    })
+    .join('');
+  refs.galleryList.innerHTML = markup;
+}
+renderGallery(galleryItems);
+refs.galleryList.addEventListener('click', showSlide);
+
+function showSlide(event) {
+  event.preventDefault();
+  // bildMarkupImgEl(event.target.parentNode.href);
+  modalCardImg(event.target.parentNode.href);
+  openModal();
+}
+function modalCardImg(srcOriginal) {
+  if (document.querySelector('.modal__img')) {
+    document.querySelector('.modal__img').remove();
+    console.log('Remove modalCardImg 1');
+  }
+  const modalImgEl = document.createElement('img');
+  modalImgEl.classList.add('modal__img');
+  modalImgEl.src = srcOriginal;
+  modalImgEl.style.display = 'block';
+  modalImgEl.style.width = '100%';
+  refs.modalWindow.appendChild(modalImgEl);
 }
 
-function getRandomColor() {
-  return `#${getRandomHex()}${getRandomHex()}${getRandomHex()}`;
+function nodeTesting(event) {
+  console.log(event.target.parentNode.href);
+  console.log(event.target.parentNode);
+  console.log(event.currentTarget.parentNode);
+  console.log(event.currentTarget.nodeName);
+}
+let imageSource = '';
+function openGalleryModal() {
+  let imgSources = '';
+}
+function modalCardGallery(event, original, description) {
+  const modalImgEl = document.createElement('img');
+  modalImgEl.classList.add('modal__img');
+  modalImgEl.src = origin;
+  modalImgEl.alt = description;
+  modalImgEl.style.display = 'block';
+  modalImgEl.width = 1280;
+  return modalImgEl;
 }
 
-function getRandomHex() {
-  return Math.round(Math.random() * 256)
-    .toString(16)
-    .padStart(2, '0');
-}
+// "Promise.reject('a')
+//   .catch(p => p + 'b')
+//   .catch(p => p + 'c')
+//   .then(p => p + 'd')
+//   .finally(p => p + 'e')
+//   .then(p => console.log(p));
